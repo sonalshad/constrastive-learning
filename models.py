@@ -17,6 +17,7 @@ class SimCLR(nn.Module):
 
         ## the WCL module applies F.normalize to z1, z2
         ## maybe for computational complexity? 
+        
         z1 = self.head(h1)
         z2 = self.head(h2)     #dim = batch_size * embedding_size(128)
         
@@ -51,6 +52,7 @@ class Net(nn.Module):
         super(Net, self).__init__()
         
         # replace the first layer with a smaller conv layer [kernel size = 3]
+        # for CIFAR  
         self.conv1 = nn.Conv2d(3, 64, kernel_size=3,    # In: 3 channels
                                stride=1, padding=1,     # Out: 64 channels
                                bias = False)
